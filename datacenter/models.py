@@ -1,4 +1,13 @@
 from django.db import models
+from django.utils.timezone import localtime
+from django.utils import timezone
+
+def is_visit_long(visit, seconds=3600):
+    if get_duration(visit) > seconds:
+        return True
+    else:
+        return False
+
 def get_duration(visit):
     if not visit.leaved_at:
         exit_time = timezone.now()
