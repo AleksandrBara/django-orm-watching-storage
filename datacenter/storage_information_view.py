@@ -2,7 +2,6 @@ from django.shortcuts import render
 from datacenter.models import get_duration, format_duration, Visit
 
 
-
 def storage_information_view(request):
     who_inside = []
     unfinished_visits = Visit.objects.filter(leaved_at__isnull=True)
@@ -17,4 +16,3 @@ def storage_information_view(request):
         'non_closed_visits': who_inside,
     }
     return render(request, 'storage_information.html', context)
-
