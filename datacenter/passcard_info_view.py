@@ -5,10 +5,10 @@ from django.shortcuts import get_list_or_404, get_object_or_404, render
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.all()
     this_passcard_visits = []
-    onwer_name = get_object_or_404(Passcard,
+    owner_name = get_object_or_404(Passcard,
                                    passcode=passcode)
     one_person_all_visits = get_list_or_404(Visit,
-                                            passcard=onwer_name)
+                                            passcard=owner_name)
     for visit in one_person_all_visits:
         visit_info = {
             'entered_at': visit.entered_at,
