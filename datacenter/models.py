@@ -3,10 +3,7 @@ from django.utils import timezone
 
 def is_visit_long(visit, seconds=3600):
    return get_duration(visit) > seconds
-    # if get_duration(visit) > seconds:
-    #     return True
-    # else:
-    #     return False
+
 
 def get_duration(visit):
     if not visit.leaved_at:
