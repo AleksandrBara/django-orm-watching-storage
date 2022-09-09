@@ -3,7 +3,6 @@ from django.shortcuts import get_list_or_404, get_object_or_404, render
 
 
 def passcard_info_view(request, passcode):
-    passcard = Passcard.objects.get(passcode=passcode)
     this_passcard_visits = []
     owner_name = get_object_or_404(Passcard,
                                    passcode=passcode)
@@ -17,8 +16,7 @@ def passcard_info_view(request, passcode):
         }
         this_passcard_visits.append(visit_info)
     context = {
-        'passcard': passcard,
+        'passcard': owner_name,
         'this_passcard_visits': this_passcard_visits
     }
     return render(request, 'passcard_info.html', context)
-
